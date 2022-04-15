@@ -45,10 +45,6 @@ compare_df_cols(office$data$schrute, office$data$sheets) %>% #Comparing the exis
   rename(col_name = 1, schrute_data = 2, sheets_data = 3) %>%
   kable()
 
-
-
-
-
 # Merging the dfs
 
 for(i in 1:length(office$data)){ #Creating an episode id based on Ep:Se format
