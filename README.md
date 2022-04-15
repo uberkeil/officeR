@@ -1,9 +1,4 @@
----
-title: "Merging two Popular Office (TV/US) Datasets"
-author: "Kyle Simpson"
-date: "4/10/2022"
-output: github_document
----
+# Merging two Popular Office (TV/US) Datasets
 
 There are already some good examples of how text mining can be applied to transcripts
 of the US version of 'The Office'.  In these examples, there appear to be two popular
