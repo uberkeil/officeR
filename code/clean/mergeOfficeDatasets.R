@@ -32,12 +32,22 @@ for (i in seq_along(office$paths)){ # read.csv each .csv in data/raw and save it
 # Comparison of datasets
 
 all_equal(office$data$schrute, office$data$sheets) #Checking the number of columns in each dataframe on the list
-
-compare_df_cols(office$data$schrute, office$data$sheets) #Comparing the existence and type of a given column name between both dfs
+colSums(is.na(compare_df_cols(office$data$schrute, office$data$sheets)))
 
 for(i in 1:length(office$data)){ #Quick look for missing values
   office$test[[i]] <- colSums(is.na(office$data[[i]]))
 }
+office$test[(1:2)]
+
+
+compare_df_cols(office$data$schrute, office$data$sheets) %>% #Comparing the existence and type of a given column name between both dfs
+  as_tibble() %>%
+  rename(col_name = 1, schrute_data = 2, sheets_data = 3) %>%
+  kable()
+
+
+
+
 
 # Merging the dfs
 
@@ -75,6 +85,6 @@ office$data[[3]] <- #Merging and cleaning our dfs
   select(-c(deleted, sheets_id))
 
 # Writing the output to a csv
-office$data[[3]] %>% 
-  write.csv(here("data", "clean", "combined_OfficeDataset.csv"))
+#office$data[[3]] %>% 
+#  write.csv(here("data", "clean", "combined_OfficeDataset.csv"))
 
